@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title> The Cockatiel Project </title>
+                <style>
+                    h1 {text-align: center;}
+                    div {text-align: center;}
+                    p {text-align: center;}
+                </style>
+        <link rel="icon" type="image/x-icon" href="cockatiel.ico">
+        <link rel="stylesheet" href="cockatiel.css"
+    </head>
+    <body>
+        <h1> The Cockatiel Project </h1>
+        <p id="bird-fact"></p>
+        <img id="bird-image" src="" alt="Birb Image" class="center">
+        <br>
+        <br>
+        <p>Made by NGTV1234 using some-random-api</p>
+        <script>
+            const apiUrl = 'https://some-random-api.ml/animal/bird';
+            const image = document.getElementById('bird-image');
+            const fact = document.getElementById('bird-fact');
+
+            fetch(apiUrl)
+            .then(Response => Response.json())
+            .then(data => {
+                image.src = data.image;
+                fact.textContent = data.fact;
+            })
+            .catch(error => console.error(error));
+        </script>
+    </body>
+</html>
